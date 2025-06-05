@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { CartContextProvider } from './store/CartContext';
 
 // components
 import Header from './components/Header';
@@ -12,10 +13,10 @@ function App() {
   }, []);
 
   return (
-    <>
+    <CartContextProvider>
       <Header />
       <Meals />
-    </>
+    </CartContextProvider>
   );
 }
 
