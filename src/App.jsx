@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 // components
 import Header from './components/Header';
+import Meals from './components/Meals';
 
 function App() {
   useEffect(() => {
@@ -13,6 +14,7 @@ function App() {
   return (
     <>
       <Header />
+      <Meals />
     </>
   );
 }
