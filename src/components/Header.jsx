@@ -1,3 +1,6 @@
+// components
+import Button from './ui/Button';
+
 function Header() {
   return (
     <header id='main-header'>
@@ -6,7 +9,7 @@ function Header() {
         <h1>ReactFood</h1>
       </div>
       <nav>
-        <button>Cart</button>
+        <Button textOnly>Cart</Button>
       </nav>
     </header>
   );
