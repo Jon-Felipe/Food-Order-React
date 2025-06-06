@@ -5,12 +5,13 @@ import UserProgressContext from '../store/UserProgressContext';
 // components
 import Modal from './ui/Modal';
 import Button from './ui/Button';
+import CartItem from './CartItem';
 
 // extras
 import { currencyFormatter } from '../utils/formatting';
 
 function Cart() {
-  const { items } = useContext(CartContext);
+  const { items, addItem, removeItem } = useContext(CartContext);
   const { progress, hideCart } = useContext(UserProgressContext);
 
   const cartTotal = items.reduce((acc, curr) => {
@@ -26,7 +27,14 @@ function Cart() {
       <h2>Your Cart</h2>
       <ul>
         {items.map((item) => (
-          <li key={item.id}>{item.name}</li>
+          <CartItem
+            key={item.id}
+            name={item.name}
+            quantity={item.quantity}
+            price={item.price}
+            onIncrease={() => addItem(item)}
+            onDecrease={() => removeItem(item.id)}
+          />
         ))}
       </ul>
       <p className='cart-total'>{currencyFormatter.format(cartTotal)}</p>
