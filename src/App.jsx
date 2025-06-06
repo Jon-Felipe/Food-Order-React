@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { CartContextProvider } from './store/CartContext';
+import { UserProgressContextProvider } from './store/UserProgressContext';
 
 // components
 import Header from './components/Header';
 import Meals from './components/Meals';
+import Cart from './components/Cart';
 
 function App() {
   useEffect(() => {
@@ -13,10 +15,13 @@ function App() {
   }, []);
 
   return (
-    <CartContextProvider>
-      <Header />
-      <Meals />
-    </CartContextProvider>
+    <UserProgressContextProvider>
+      <CartContextProvider>
+        <Header />
+        <Meals />
+        <Cart />
+      </CartContextProvider>
+    </UserProgressContextProvider>
   );
 }
 
